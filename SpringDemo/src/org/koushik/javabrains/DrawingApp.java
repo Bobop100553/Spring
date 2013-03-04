@@ -8,6 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
 
+	private static ApplicationContext context;
+
 	/**
 	 * @param args
 	 */
@@ -22,8 +24,7 @@ public class DrawingApp {
 		   Triangle triangle = (Triangle) factory.getBean("Triangle");
 		   triangle.draw(); */
 		
-		// Instantiate and draw a Triangle using an Application Context object
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		context = new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle) context.getBean("Triangle");
 		triangle.draw();
 	}
