@@ -3,6 +3,11 @@ package org.koushik.javabrains;
 public class Triangle {
 	
 	private String type;
+	private int height;
+	
+	public Triangle() {
+		
+	}
 	
 	public String getType() {
 		return type;
@@ -12,10 +17,16 @@ public class Triangle {
 		this.type = type;
 	}
 
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	public void draw() {
-		
-		System.out.println(getType() + " Triangle drawn");
-		
+		System.out.println(getType() + " Triangle drawn of height " + getHeight());
 	}
 	
 }
