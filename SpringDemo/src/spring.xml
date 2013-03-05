@@ -4,8 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean id="Triangle" class="org.koushik.javabrains.Triangle">
-		<constructor-arg value="Equilateral" />
-		<constructor-arg value="20" />
+		<constructor-arg type="int" value="20" />
 	</bean>
 
 </beans>
