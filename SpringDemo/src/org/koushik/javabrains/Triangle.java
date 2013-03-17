@@ -1,6 +1,8 @@
 package org.koushik.javabrains;
 
-public class Triangle {
+import org.springframework.beans.factory.InitializingBean;
+
+public class Triangle implements InitializingBean {
 	
 	private Point pointA;
 	private Point pointB;
@@ -30,10 +32,15 @@ public class Triangle {
 		this.pointC = pointC;
 	}
 
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("InitializingBean init method called for Triangle");
+	}
+	
 	public void draw() {
 		System.out.println("Point A = (" + pointA.getX() + ", " + pointA.getY() + ")");
 		System.out.println("Point B = (" + pointB.getX() + ", " + pointB.getY() + ")");
 		System.out.println("Point C = (" + pointC.getX() + ", " + pointC.getY() + ")");
 	}
-	
+
 }
