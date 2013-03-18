@@ -16,7 +16,6 @@
 	</bean>
 	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
-		<qualifier value="circleRelated" />
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
