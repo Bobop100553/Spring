@@ -10,7 +10,6 @@
 	</bean>
 	
 	<bean id="shape2" class="org.koushik.javabrains.Circle">
-		<property name="centre" ref="pointA" />
 		<property name="radius" value="3.75" />
 	</bean>
 	
