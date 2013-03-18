@@ -1,6 +1,6 @@
 package org.koushik.javabrains;
 
-public class Triangle {
+public class Triangle implements Shape {
 	
 	private Point pointA;
 	private Point pointB;
@@ -31,6 +31,7 @@ public class Triangle {
 	}
 
 	public void draw() {
+		System.out.println("Triangle drawn.");
 		System.out.println("Point A = (" + pointA.getX() + ", " + pointA.getY() + ")");
 		System.out.println("Point B = (" + pointB.getX() + ", " + pointB.getY() + ")");
 		System.out.println("Point C = (" + pointC.getX() + ", " + pointC.getY() + ")");

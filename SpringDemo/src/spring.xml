@@ -3,23 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="Triangle" class="org.koushik.javabrains.Triangle">
-		<property name="pointA" ref="zeroPoint" />
-		<property name="pointB" ref="point2" />
-		<property name="pointC" ref="point3" />
+	<bean id="shape1" class="org.koushik.javabrains.Triangle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
 	</bean>
 	
-	<bean id="zeroPoint" class="org.koushik.javabrains.Point">
+	<bean id="shape2" class="org.koushik.javabrains.Circle">
+		<property name="centre" ref="pointA" />
+		<property name="radius" value="3.75" />
+	</bean>
+	
+	<bean id="pointA" class="org.koushik.javabrains.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="point2" class="org.koushik.javabrains.Point">
+	<bean id="pointB" class="org.koushik.javabrains.Point">
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean id="point3" class="org.koushik.javabrains.Point">
+	<bean id="pointC" class="org.koushik.javabrains.Point">
 		<property name="x" value="0" />
 		<property name="y" value="20" />
 	</bean>
