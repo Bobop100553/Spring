@@ -24,6 +24,6 @@
 		<property name="y" value="20" />
 	</bean>
 	
-	<bean class="org.koushik.javabrains.DisplayBeanNamePostProcessor" />
+	<bean class="org.koushik.javabrains.MyBeanFactoryPostProcessor" />
 
 </beans>
