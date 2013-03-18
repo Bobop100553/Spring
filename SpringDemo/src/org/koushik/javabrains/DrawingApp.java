@@ -14,9 +14,9 @@ public class DrawingApp {
 
 		// Instantiate and draw a Triangle using an Application Context object
 		context = new ClassPathXmlApplicationContext("spring.xml");
-		Shape shape1 = (Shape) context.getBean("shape1");
+		/*Shape shape1 = (Shape) context.getBean("shape1");
 		shape1.draw();
-		System.out.println();
+		System.out.println();*/
 		Shape shape2 = (Shape) context.getBean("shape2");
 		shape2.draw();
 	}
