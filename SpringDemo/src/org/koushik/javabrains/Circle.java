@@ -1,5 +1,7 @@
 package org.koushik.javabrains;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 public class Circle implements Shape {
@@ -23,6 +25,16 @@ public class Circle implements Shape {
 
 	public void setRadius(double radius) {
 		this.radius = radius;
+	}
+	
+	@PostConstruct
+	public void initializeCircle() {
+		System.out.println("Init of Circle.");
+	}
+	
+	@PreDestroy
+	public void destroyCircle() {
+		System.out.println("Destroy of Circle.");
 	}
 
 	@Override
