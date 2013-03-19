@@ -5,7 +5,11 @@ import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component(value="shape2") // Without the optional value, creates a bean named "circle"
+// Other stereotypes include @Service (for a service layer component), @Repository (for a
+// Data layer component and @Controller (for a MVC controller component)
 public class Circle implements Shape {
 	
 	private Point centre;

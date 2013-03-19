@@ -11,8 +11,6 @@
 		<property name="pointC" ref="pointC" />
 	</bean>
 	
-	<bean id="shape2" class="org.koushik.javabrains.Circle" />
-	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
 		<property name="x" value="0" />
 		<property name="y" value="0" />
@@ -29,5 +27,7 @@
 	</bean>
 
 	<context:annotation-config />
+	
+	<context:component-scan base-package="org.koushik.javabrains" />
 	
 </beans>
