@@ -4,6 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Value;
+
 public class Circle implements Shape {
 	
 	private Point centre;
@@ -23,6 +25,7 @@ public class Circle implements Shape {
 		return radius;
 	}
 
+	@Value(value="3.75")
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
