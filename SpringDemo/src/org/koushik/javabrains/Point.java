@@ -1,6 +1,7 @@
 package org.koushik.javabrains;
 
 public class Point {
+	
 	// Horizontal (x) coordinate of the point
 	// Vertical (y) coordinate of the point
 	private int x;
@@ -21,6 +22,5 @@ public class Point {
 	public void setY(int y) {
 		this.y = y;
 	}
-	
 	
 }
