@@ -1,5 +1,9 @@
 package org.koushik.javabrains;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.FileSystemResource;
+
 public class DrawingApp {
 
 	/**
@@ -7,8 +11,9 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 
-		// Instantiate and draw a Triangle without using Spring
-		Triangle triangle = new Triangle();
+		// Instantiate and draw a Triangle using a Spring Bean Factory object
+		BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
+		Triangle triangle = (Triangle) factory.getBean("Triangle");
 		triangle.draw();
 	}
 
