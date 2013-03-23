@@ -8,22 +8,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
 
+	private static ApplicationContext context;
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		// Instantiate and draw a Triangle without using Spring
-		// Triangle triangle = new Triangle();
-		// triangle.draw();
-		
-		// Instantiate and draw a Triangle using a Spring Bean Factory object
-		/* BeanFactory factory = new XmlBeanFactory(new FileSystemResource("spring.xml"));
-		   Triangle triangle = (Triangle) factory.getBean("Triangle");
-		   triangle.draw(); */
-		
-		// Instantiate and draw a Triangle using an Application Context object
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		// Instantiate and draw a triangle using an Application Context Object
+		context = new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle) context.getBean("Triangle");
 		triangle.draw();
 	}
