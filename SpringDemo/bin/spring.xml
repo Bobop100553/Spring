@@ -27,5 +27,7 @@
 		<property name="x" value="0" />
 		<property name="y" value="20" />
 	</bean>
+	
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
 
 </beans>
