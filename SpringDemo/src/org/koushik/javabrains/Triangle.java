@@ -3,7 +3,7 @@ package org.koushik.javabrains;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean, DisposableBean {
+public class Triangle /*implements InitializingBean, DisposableBean*/ {
 	
 	private Point pointA;
 	private Point pointB;
@@ -32,8 +32,16 @@ public class Triangle implements InitializingBean, DisposableBean {
 	public void setPointC(Point pointC) {
 		this.pointC = pointC;
 	}
+	
+	public void myInit () {
+		System.out.println("My init method called for Triangle");
+	}
+	
+	public void cleanUp () {
+		System.out.println("My clean up method called for Triangle");
+	}
 
-	@Override
+	/*@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("InitializingBean init method called for Triangle");
 	}
@@ -41,7 +49,7 @@ public class Triangle implements InitializingBean, DisposableBean {
 	@Override
 	public void destroy() throws Exception {
 		System.out.println("DisposableBean destroy method called for Triangle");
-	}
+	}*/
 
 	public void draw() {
 		System.out.println("Point A = (" + pointA.getX() + ", " + pointA.getY() + ")");
