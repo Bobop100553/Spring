@@ -1,10 +1,18 @@
 package org.koushik.javabrains;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+
 public class Triangle implements Shape {
 	
 	private Point pointA;
 	private Point pointB;
 	private Point pointC;
+	
+	private MessageSource messageSource;
 	
 	public Point getPointA() {
 		return pointA;
@@ -30,11 +38,31 @@ public class Triangle implements Shape {
 		this.pointC = pointC;
 	}
 
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	@Autowired
+	public void setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
+	}
+
+	@PostConstruct
+	public void initializeTriangle() {
+		System.out.println(messageSource.getMessage("triangle.init.message", null, "Init of triangle.", DrawingApp.getLocale()));
+	}
+	
+	@PreDestroy
+	public void destroyTriangle() {
+		System.out.println(messageSource.getMessage("triangle.destroy.message", null, "Destroy of triangle.", DrawingApp.getLocale()));
+	}
+
+	@Override
 	public void draw() {
-		System.out.println("Triangle drawn.");
-		System.out.println("Point A = (" + pointA.getX() + ", " + pointA.getY() + ")");
-		System.out.println("Point B = (" + pointB.getX() + ", " + pointB.getY() + ")");
-		System.out.println("Point C = (" + pointC.getX() + ", " + pointC.getY() + ")");
+		System.out.println(messageSource.getMessage("triangle.drawn.message", null, "Hello from the triangle class!", DrawingApp.getLocale()));
+		System.out.println(messageSource.getMessage("triangle.point.message", new Object[] {pointA.displayPoint()}, "Point", DrawingApp.getLocale()));
+		System.out.println(messageSource.getMessage("triangle.point.message", new Object[] {pointB.displayPoint()}, "Point", DrawingApp.getLocale()));
+		System.out.println(messageSource.getMessage("triangle.point.message", new Object[] {pointC.displayPoint()}, "Point", DrawingApp.getLocale()));
 	}
 	
 }

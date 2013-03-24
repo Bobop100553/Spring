@@ -23,4 +23,8 @@ public class Point {
 		this.y = y;
 	}
 	
+	public String displayPoint() {
+		return "(" + x + ", " + y + ")";
+	}
+	
 }
