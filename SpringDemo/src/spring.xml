@@ -11,9 +11,7 @@
 		<property name="pointC" ref="pointC" />
 	</bean>
 	
-	<bean id="shape2" class="org.koushik.javabrains.Circle">
-		<property name="radius" value="3.75" />
-	</bean>
+	<bean id="shape2" class="org.koushik.javabrains.Circle" />
 	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
 		<property name="x" value="0" />
