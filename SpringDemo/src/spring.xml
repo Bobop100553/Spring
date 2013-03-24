@@ -10,20 +10,22 @@
 	</bean>
 	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
-		<property name="x" value="0" />
-		<property name="y" value="0" />
+		<property name="x" value="${pointA.X}" />
+		<property name="y" value="${pointA.Y}" />
 	</bean>
 	
 	<bean id="pointB" class="org.koushik.javabrains.Point">
-		<property name="x" value="-20" />
-		<property name="y" value="0" />
+		<property name="x" value="${pointB.X}" />
+		<property name="y" value="${pointB.Y}" />
 	</bean>
 	
 	<bean id="pointC" class="org.koushik.javabrains.Point">
-		<property name="x" value="0" />
-		<property name="y" value="20" />
+		<property name="x" value="${pointC.X}" />
+		<property name="y" value="${pointC.Y}" />
 	</bean>
 	
-	<bean class="org.koushik.javabrains.MyBeanFactoryPostProcessor" />
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.properties"></property>
+	</bean>
 
 </beans>
