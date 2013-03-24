@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="myInit" default-destroy-method="cleanUp" >
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="Triangle" class="org.koushik.javabrains.Triangle" autowire="byName" />
+	<bean id="Triangle" class="org.koushik.javabrains.Triangle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB" ref="pointB" />
+		<property name="pointC" ref="pointC" />
+	</bean>
 	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
 		<property name="x" value="0" />
@@ -20,5 +23,7 @@
 		<property name="x" value="0" />
 		<property name="y" value="20" />
 	</bean>
+	
+	<bean class="org.koushik.javabrains.DisplayBeanNamePostProcessor" />
 
 </beans>
