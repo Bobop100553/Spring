@@ -1,6 +1,6 @@
 package org.koushik.javabrains;
 
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Circle implements Shape {
 	
@@ -11,7 +11,7 @@ public class Circle implements Shape {
 		return centre;
 	}
 
-	@Required
+	@Autowired //First = By type; Second = By name
 	public void setCentre(Point centre) {
 		this.centre = centre;
 	}
