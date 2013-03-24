@@ -3,17 +3,30 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="parentTriangle" class="org.koushik.javabrains.Triangle">
-		<property name="pointA" ref="pointA" />
+	<bean id="parentTriangle" class="org.koushik.javabrains.Triangle" abstract="true">
+		<property name="points">
+			<list>
+				<ref local="pointA" />
+			</list>
+		 </property>
 	</bean>
 	
 	<bean id="Triangle1" class="org.koushik.javabrains.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
-		<property name="pointC" ref="pointC" />
+		<property name="points">
+			<list merge="true">
+				 <ref local="pointB" />
+				 <ref local="pointC" />
+			</list>
+		</property>
+		
 	</bean>
 	
 	<bean id="Triangle2" class="org.koushik.javabrains.Triangle" parent="parentTriangle">
-		<property name="pointB" ref="pointB" />
+		<property name="points">
+			<list merge="true">
+				<ref local="pointB" />
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="pointA" class="org.koushik.javabrains.Point">
