@@ -7,7 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawingApp {
 
-	private static AbstractApplicationContext context;
 	private static Locale locale;
 	
 	public static Locale getLocale() {
@@ -23,10 +22,10 @@ public class DrawingApp {
 	 */
 	public static void main(String[] args) {
 
-		locale = Locale.FRANCE;
+		locale = Locale.GERMANY;
 		
 		// Instantiate and draw a Triangle using an Application Context object
-		context = new ClassPathXmlApplicationContext("spring.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
 		System.out.println(context.getMessage("application.greeting", null, "Hello!", locale));
 		Shape shape1 = (Shape) context.getBean("shape1");
@@ -34,6 +33,7 @@ public class DrawingApp {
 		System.out.println();
 		Shape shape2 = (Shape) context.getBean("shape2");
 		shape2.draw();
+		context.close();
 	}
 
 }

@@ -6,18 +6,22 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component(value="shape2") // Without the optional value, creates a bean named "circle"
 // Other stereotypes include @Service (for a service layer component), @Repository (for a
 // Data layer component and @Controller (for a MVC controller component)
-public class Circle implements Shape {
+public class Circle implements Shape, ApplicationEventPublisherAware {
 	
 	private Point centre;
 	private double radius;
 	
 	private MessageSource messageSource;
+	
+	private ApplicationEventPublisher publisher;
 
 	public Point getCentre() {
 		return centre;
@@ -62,7 +66,14 @@ public class Circle implements Shape {
 		System.out.println(messageSource.getMessage("circle.drawn.message", null, "Hello from the circle class!", DrawingApp.getLocale()));
 		System.out.println(messageSource.getMessage("circle.centre.message", new Object[] {centre.displayPoint()}, "?", DrawingApp.getLocale())); 
 		System.out.println(messageSource.getMessage("circle.radius.message", new Object[] {radius}, "?", DrawingApp.getLocale()));
+		DrawEvent drawEvent = new DrawEvent(this);
+		publisher.publishEvent(drawEvent);
+	}
 
+	@Override
+	public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+		this.publisher = publisher;
+		
 	}
 
 }
